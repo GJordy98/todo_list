@@ -1,0 +1,24 @@
+a{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+
+.container form input{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container form textarea{
+    display: flex;
+    flex: column;
+    width: 100%;
+}
+
+.container form submit{
+    margin: auto;
+}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+
+        <h2>S'inscrire</h2>
+
+        {% if messages %}
+
+        {% for message in messages %}
+            <h3 style="color: red;">{{  message }}</h3>
+        {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="username" required>
+            </div>
+            <br>
+            <div class="input-box">
+                <input type="email" placeholder="Entrez votre Email" name="email" required>
+            </div>
+            <br>
+            <div class="input-box">
+                <input type="password" placeholder="Entrez votre mot de passse" name="password" required>
+            </div>
+            <br>
+            
+            <div class="input-box button">
+                <button class="btn btn-info d-flex mx-auto" type="submit" value="register">S'inscrire</button>
+            </div>
+            
+            
+            <div class="text ">
+                <p>Déja inscrit ? <a href="{% url 'login' %}">Connectez vous</a></p>
+            </div>
+            <div class="text">
+                <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

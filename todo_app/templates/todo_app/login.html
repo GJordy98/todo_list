@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+    
+    <div class="container">
+
+        <h2>Se connecter</h2>
+        {% if messages %}
+
+        {% for message in messages %}
+            <h3 style="color: red;">{{  message }}</h3>
+        {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="uname" required>
+            </div>
+                <br>
+            <div class="input-box">
+                <input type="password" placeholder="Entrez votre mot de passse" name="pass" required>
+            </div>
+            <br>
+            <div class="input-box button">
+                <button class="btn btn-primary d-flex mx-auto" type="submit" value="Login">Se connecter</button>
+            </div>
+            <br> 
+            <div class="text ">
+                <p>Pas encore de compte ? <a href="{% url 'register' %}">Inscrivez vous</a></p>
+            </div>
+            
+            <div class="text">
+                <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
+            </div>
+        </form>
+    </div>
+
+    </div>
+</body>
+</html>
