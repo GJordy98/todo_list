@@ -10,44 +10,48 @@
     
 </head>
 <body>
-    <div class="container">
+    <div class="container formulaire" style="display: flex; justify-content: center; align-items: center;min-height: 100vh;">
 
-        <h2>S'inscrire</h2>
+        <div class="enregistrement" style="width: 360px; padding: 4rem 2rem; border-radius: 1rem; box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);">
 
-        {% if messages %}
+            <h2 class="titre_formulaire" style="font-weight: blod; text-align: center; margin-bottom: 3rem;">S'inscrire</h2>
 
-        {% for message in messages %}
-            <h3 style="color: red;">{{  message }}</h3>
-        {% endfor %}
-        {% endif %}
+            {% if messages %}
 
-        <form action="{% url 'register' %}" method="POST">
-            {% csrf_token %}
-            <div class="input-box">
-                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="username" required>
-            </div>
-            <br>
-            <div class="input-box">
-                <input type="email" placeholder="Entrez votre Email" name="email" required>
-            </div>
-            <br>
-            <div class="input-box">
-                <input type="password" placeholder="Entrez votre mot de passse" name="password" required>
-            </div>
-            <br>
-            
-            <div class="input-box button">
-                <button class="btn btn-info d-flex mx-auto" type="submit" value="register">S'inscrire</button>
-            </div>
-            
-            
-            <div class="text ">
-                <p>Déja inscrit ? <a href="{% url 'login' %}">Connectez vous</a></p>
-            </div>
-            <div class="text">
-                <p>Mot de passe oublié ? <a href="#">Réinitialiser</a></p>
-            </div>
-        </form>
+            {% for message in messages %}
+                <h3 style="color: red;">{{  message }}</h3>
+            {% endfor %}
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="input-box" style="position: relative; height: 48px;">
+                    <input type="text"; style="position: absolute; top: 0; width: 100%; height: 100%; font-size: 1rem; font-size: 1rem; border: 1px solid #ccc;
+                    border-radius: .5rem; " placeholder="Entrez votre nom d'utilisateur" name="username" required>
+                </div>
+                <br>
+                <div class="input-box" style="position: relative; height: 48px;">
+                    <input type="email"  style="position: absolute; top: 0; width: 100%; height: 100%; font-size: 1rem; font-size: 1rem; border: 1px solid #ccc;
+                    border-radius: .5rem; " placeholder="Entrez votre Email" name="email" required>
+                </div>
+                <br>
+                <div class="input-box" style="position: relative; height: 48px;" style="display: block; padding: .75rem 2rem; width: 100%;">
+                    <input type="password"  style="position: absolute; top: 0; width: 100%; height: 100%; font-size: 1rem; font-size: 1rem; border: 1px solid #ccc;
+                    border-radius: .5rem; " placeholder="Entrez votre mot de passse" name="password" required>
+                </div>
+                <br>
+                
+                <div class="input-box button " style="margin-bottom: 1.7rem;">
+                    <button class="btn btn-info d-flex mx-auto" type="submit" value="register">S'inscrire</button>
+                </div>
+                
+                
+                <div class="text " style="display: flex; justify-content: center;">
+                    <p>Déja inscrit ? <a href="{% url 'login' %}">Connectez vous</a></p>
+                </div>
+                
+            </form>
+        </div>
     </div>
     
 </body>
